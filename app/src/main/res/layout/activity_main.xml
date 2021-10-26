@@ -3,31 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.application.myapplication.MainActivity">
+    android:background="#0f9113"
+    tools:context="com.example.dropdownmenus.MainActivity">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="214dp"
+        android:layout_height="72dp"
         android:layout_centerInParent="true"
-        android:text="View Wasted Foods" />
+        android:backgroundTint="#FFFFFF"
+        android:text="View Wasted Foods"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="214dp"
+        android:layout_height="72dp"
+        android:backgroundTint="#FFFFFF"
         android:layout_below="@id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="115dp"
-        android:text="View Newsletter" />
+        android:text="View Newsletter"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="214dp"
+        android:layout_height="72dp"
         android:layout_above="@id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="115dp"
-        android:text="Add Food Wasted" />
+        android:layout_marginBottom="113dp"
+        android:text="Add Food Wasted"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>

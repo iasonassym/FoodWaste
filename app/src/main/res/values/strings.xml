@@ -6,5 +6,26 @@
         <item>Apple</item>
         <item>Pear</item>
         <item>Bread</item>
+        <item>asparagus</item>
+        <item>apples</item>
+        <item>avocado</item>
+        <item>alfalfa</item>
+        <item>acorn squash</item>
+        <item>almond</item>
+        <item>arugula</item>
+        <item>artichoke</item>
+        <item>applesauce</item>
+        <item>asian noodles</item>
+        <item>antelope</item>
+        <item>ahi tuna</item>
+        <item>albacore tuna</item>
+        <item>Apple juice</item>
+        <item>Avocado roll</item>
+    </string-array>
+    <string-array name="Type">
+        <item>grams</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>unit</item>
     </string-array>
 </resources>

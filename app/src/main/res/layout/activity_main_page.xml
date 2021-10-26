@@ -3,21 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0f9113"
     tools:context=".MainPage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Activity 2" />
-
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/foodSpinner"
+        android:backgroundTint="#FFFFFF"
+        android:background="#FFFFFF"
         android:layout_width="410dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="61dp"
         android:layout_marginEnd="1dp"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:background="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/foodSpinner"
+        android:layout_marginTop="59dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="@android:color/black"/>
+
+    <Spinner
+        android:id="@+id/typeSpinner"
+        android:background="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/foodSpinner"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="67dp"
+        android:layout_toRightOf="@id/editTextNumber"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:backgroundTint="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/typeSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="161dp"
+        android:text="ADD"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>
