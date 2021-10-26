@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DropDownMenus</string>
+    <string-array name="Foods">
+        <item>Banana</item>
+        <item>Chicken</item>
+        <item>Apple</item>
+        <item>Pear</item>
+        <item>Bread</item>
+    </string-array>
+</resources>
