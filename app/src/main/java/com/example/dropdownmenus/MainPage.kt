@@ -12,13 +12,14 @@ import android.widget.Toast
 import android.widget.ArrayAdapter
 
 import android.widget.Spinner
-
-
-
-
+import java.sql.Time
+import java.text.DateFormat
+import java.util.*
 
 class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var button: Button? = null
+    var calendar: Calendar? = java.util.Calendar.getInstance()
+    var currentDate: String? = DateFormat.getDateInstance().format(calendar?.time)
     var food: String? = null
     var amount: EditText? = null
     var type: String? = null
@@ -34,9 +35,6 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         foodSpinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         foodSpinnerSpinner.adapter = foodSpinnerAdapter
         foodSpinnerSpinner.onItemSelectedListener = this
-
-//        println(foodSpinnerSpinner.selectedItem.toString())
-
 
         val typeSpinner = findViewById<Spinner>(R.id.typeSpinner)
         val typeAdapter = ArrayAdapter.createFromResource(
@@ -70,63 +68,8 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         println(amount?.text.toString())
         println(type)
         println(food)
+        println(currentDate)
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-
-
-//    class Foods : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-//
-//        override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-////            println(parent.count)
-////            println(view)
-////            println(id)
-//
-//            val text = parent.getItemAtPosition(position).toString()
-//            food = text
-//            Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
-//            println(parent.getItemAtPosition(position).toString())
-//        }
-//
-//        override fun onNothingSelected(parent: AdapterView<*>?) {}
-//    }
-//
-//    class Types : AppCompatActivity(), AdapterView.OnItemSelectedListener{
-//
-//        override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-//            println(parent.count)
-//            println(view)
-//            println(id)
-//            val text = parent.getItemAtPosition(position).toString()
-//            Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
-//            println(parent.getItemAtPosition(position).toString())
-//        }
-//
-//        override fun onNothingSelected(parent: AdapterView<*>?) {}
-//    }
-
 }
-
-
-//class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        val spinner = findViewById<Spinner>(R.id.foodSpinner)
-//        val adapter = ArrayAdapter.createFromResource(
-//            this,
-//            R.array.Foods, android.R.layout.simple_spinner_item
-//        )
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//        spinner.adapter = adapter
-//        spinner.onItemSelectedListener = this
-//    }
-//
-//    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-//        println("hi")
-//        val text = parent.getItemAtPosition(position).toString()
-//        Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
-//    }
-//
-//    override fun onNothingSelected(parent: AdapterView<*>?) {}
-//}
