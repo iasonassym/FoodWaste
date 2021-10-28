@@ -24,9 +24,13 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var food: String? = null
     var amount: EditText? = null
     var type: String? = null
+    var date: String? = null
     var sp: SharedPreferences? = null
+    var sp2: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         sp = getSharedPreferences("FoodAndAmount", Context.MODE_PRIVATE)
+        sp2 = getSharedPreferences("TypeAndDate", Context.MODE_PRIVATE)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
 
@@ -62,7 +66,7 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         } else {
             food = text
         }
-        Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(parent.context, text, Toast.LENGTH_SHORT).show()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -71,11 +75,27 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         println(amount?.text.toString())
         println(type)
         println(food)
-        println(DateFormat.getDateInstance().format(calendar?.time))
+        println(DateFormat.getDateInstance().format(calendar?.time).toString())
+
+        date = DateFormat.getDateInstance().format(calendar?.time).toString()
         val editor = sp?.edit()
-        editor?.putString("food", food)
-        editor?.putString("amount", amount?.text.toString())
+        val editor2 = sp2?.edit()
+
+        val foodTaken = sp?.getString("food", "")
+        val amountTaken = sp?.getString("amount", "")
+
+        val typeTaken = sp2?.getString("type", "")
+        val dateTaken = sp2?.getString("date", "")
+
+
+        editor?.putString("food", foodTaken+" @ "+food)
+        editor?.putString("amount", amountTaken+" @ "+amount?.text.toString())
         editor?.commit()
+
+        editor2?.putString("type", typeTaken+" @ "+type)
+        editor2?.putString("date", dateTaken+" @ "+date)
+        editor2?.commit()
+
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
