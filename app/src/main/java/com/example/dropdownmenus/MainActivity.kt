@@ -8,15 +8,24 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     private var button: Button? = null
+    private var viewWastedFoodButton: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         button = findViewById<View>(R.id.button3) as Button
         button!!.setOnClickListener { openActivity2() }
+
+        viewWastedFoodButton = findViewById<View>(R.id.button) as Button
+        viewWastedFoodButton!!.setOnClickListener { openActivity3()}
     }
 
     fun openActivity2() {
         val intent = Intent(this, MainPage::class.java)
+        startActivity(intent)
+    }
+
+    fun openActivity3() {
+        val intent = Intent(this, WastedFoodPage::class.java)
         startActivity(intent)
     }
 

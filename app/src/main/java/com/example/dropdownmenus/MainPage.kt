@@ -1,6 +1,8 @@
 package com.example.dropdownmenus
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,11 +21,12 @@ import java.util.*
 class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var button: Button? = null
     var calendar: Calendar? = java.util.Calendar.getInstance()
-    var currentDate: String? = DateFormat.getDateInstance().format(calendar?.time)
     var food: String? = null
     var amount: EditText? = null
     var type: String? = null
+    var sp: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        sp = getSharedPreferences("FoodAndAmount", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
 
@@ -68,7 +71,11 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         println(amount?.text.toString())
         println(type)
         println(food)
-        println(currentDate)
+        println(DateFormat.getDateInstance().format(calendar?.time))
+        val editor = sp?.edit()
+        editor?.putString("food", food)
+        editor?.putString("amount", amount?.text.toString())
+        editor?.commit()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
