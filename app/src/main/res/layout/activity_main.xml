@@ -33,10 +33,15 @@
         android:layout_above="@id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="113dp"
-        android:text="Add Food Wasted"
         android:backgroundTint="#FFFFFF"
-        android:textColor="@android:color/black"/>
+        android:text="Add Food Wasted"
+        android:textColor="@android:color/black" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="53dp"
+        android:layout_height="58dp"
+        android:text="⚙️" />
 
 
 </RelativeLayout>

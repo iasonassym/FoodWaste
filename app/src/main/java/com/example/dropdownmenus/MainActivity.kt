@@ -21,6 +21,7 @@ import android.net.Uri
 class MainActivity : AppCompatActivity() {
     private var button: Button? = null
     private var viewWastedFoodButton: Button? = null
+    private var settingsButton: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         viewWastedFoodButton = findViewById<View>(R.id.button) as Button
         viewWastedFoodButton!!.setOnClickListener { openActivity3() }
 
+
+        settingsButton = findViewById<View>(R.id.button4) as Button
+        settingsButton!!.setOnClickListener { openActivity4() }
 //        val alarmManager = getSystemService (Context.ALARM_SERVICE) as AlarmManager
 //        val pendingIntent: PendingIntent
 //        val intent = Intent(this, MainActivity::class.java)
@@ -55,9 +59,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    protected fun onHandleIntent(intent: Intent?) {
-        showNotification()
+    fun openActivity4() {
+        val intent = Intent(this, SettingsPage::class.java)
+        startActivity(intent)
     }
+
+//    protected fun onHandleIntent(intent: Intent?) {
+//        showNotification()
+//    }
 
 //    private fun showNotification() {
 //        val soundUri: Uri = RingtoneManager
