@@ -13,6 +13,8 @@ import com.google.android.material.timepicker.TimeFormat
 import android.os.Build
 import android.app.NotificationManager
 import android.app.NotificationChannel
+import android.content.Context
+import android.content.SharedPreferences
 import com.example.dropdownmenus.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -22,7 +24,9 @@ internal class SettingsPage : AppCompatActivity() {
     private var calendar: Calendar? = null
     private var alarmManager: AlarmManager? = null
     private var pendingIntent: PendingIntent? = null
+    var sp: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        sp = getSharedPreferences("NotificationTime", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
         binding = ActivitySettingsBinding.inflate(
@@ -33,6 +37,9 @@ internal class SettingsPage : AppCompatActivity() {
         binding!!.selectTimeBtn.setOnClickListener { showTimePicker() }
         binding!!.setAlarmBtn.setOnClickListener { setAlarm() }
         binding!!.cancelAlarmBtn.setOnClickListener { cancelAlarm() }
+        var time: String
+        time = sp?.getString("time", "").toString()
+        binding!!.selectedTime.text = time
     }
 
     private fun cancelAlarm() {
@@ -53,6 +60,9 @@ internal class SettingsPage : AppCompatActivity() {
             AlarmManager.RTC_WAKEUP, calendar!!.timeInMillis,
             AlarmManager.INTERVAL_DAY, pendingIntent
         )
+        val editor = sp?.edit()
+        editor?.putString("time", binding!!.selectedTime.text.toString())
+        editor?.commit()
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show()
     }
 
@@ -80,7 +90,11 @@ internal class SettingsPage : AppCompatActivity() {
             calendar?.set(Calendar.MINUTE, picker!!.minute)
             calendar?.set(Calendar.SECOND, 0)
             calendar?.set(Calendar.MILLISECOND, 0)
+
+
         }
+
+
     }
 
     private fun createNotificationChannel() {

@@ -34,19 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         settingsButton = findViewById<View>(R.id.button4) as Button
         settingsButton!!.setOnClickListener { openActivity4() }
-//        val alarmManager = getSystemService (Context.ALARM_SERVICE) as AlarmManager
-//        val pendingIntent: PendingIntent
-//        val intent = Intent(this, MainActivity::class.java)
-//        pendingIntent = PendingIntent.getService (this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//        val calendar: Calendar = Calendar.getInstance()
-//        // set the triggered time to currentHour:08:00 for testing
-//        calendar.set(Calendar.SECOND, 0);
-//        calendar.set(Calendar.MINUTE, 11);
-//
-//        alarmManager.setInexactRepeating(
-//            AlarmManager.RTC_WAKEUP,
-//            calendar.getTimeInMillis(), 0, pendingIntent
-//        );
     }
 
     fun openActivity2() {
@@ -63,30 +50,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, SettingsPage::class.java)
         startActivity(intent)
     }
-
-//    protected fun onHandleIntent(intent: Intent?) {
-//        showNotification()
-//    }
-
-//    private fun showNotification() {
-//        val soundUri: Uri = RingtoneManager
-//            .getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-//        val notification: Notification = NotificationCompat.Builder(this)
-//            .setContentTitle("Alarm title")
-//            .setContentText("Alarm text")
-//            .setContentIntent(
-//                PendingIntent.getActivity(
-//                    this, 0, Intent(
-//                        this,
-//                        MainActivity::class.java
-//                    ),
-//                    PendingIntent.FLAG_UPDATE_CURRENT
-//                )
-//            )
-//            .setSound(soundUri).setSmallIcon(R.drawable.ic_launcher)
-//            .build()
-//        NotificationManagerCompat.from(this).notify(0, notification)
-//    }
-
-
 }
