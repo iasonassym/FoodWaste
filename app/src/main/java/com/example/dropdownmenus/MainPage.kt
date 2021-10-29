@@ -9,12 +9,9 @@ import android.view.View
 import android.widget.*
 import android.widget.AdapterView
 
-import android.widget.Toast
-
 import android.widget.ArrayAdapter
 
 import android.widget.Spinner
-import java.sql.Time
 import java.text.DateFormat
 import java.util.*
 
@@ -55,7 +52,7 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         button = findViewById<View>(R.id.submitButton) as Button
         button!!.setOnClickListener { goToMainPage() }
 
-        amount = findViewById<View>(R.id.editTextNumber) as EditText
+        amount = findViewById<View>(R.id.btn_weight_input) as EditText
 
     }
 

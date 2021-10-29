@@ -8,26 +8,26 @@
 
     <Spinner
         android:id="@+id/foodSpinner"
-        android:backgroundTint="#FFFFFF"
-        android:background="#FFFFFF"
         android:layout_width="410dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="61dp"
         android:layout_marginEnd="1dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:spinnerMode="dropdown"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
 
     <EditText
-        android:id="@+id/editTextNumber"
-        android:background="#FFFFFF"
+        android:id="@+id/btn_weight_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/foodSpinner"
         android:layout_marginTop="59dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
 
     <Spinner
         android:id="@+id/typeSpinner"
@@ -37,18 +37,18 @@
         android:layout_below="@id/foodSpinner"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="67dp"
-        android:layout_toRightOf="@id/editTextNumber"
+        android:layout_toRightOf="@id/btn_weight_input"
         android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/submitButton"
-        android:backgroundTint="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/typeSpinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="161dp"
+        android:backgroundTint="#FFFFFF"
         android:text="ADD"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black" />
 
 </RelativeLayout>
