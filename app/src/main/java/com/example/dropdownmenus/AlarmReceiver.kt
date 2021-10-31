@@ -20,8 +20,8 @@ public class AlarmReceiver: BroadcastReceiver() {
 
         val builder = NotificationCompat.Builder(context!!, "foxandroid")
             .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentTitle("Food Waste Notification")
-            .setContentText("Add today's food wasted")
+            .setContentTitle("Foodsitive")
+            .setContentText("Time to add the food you wasted today")
             .setAutoCancel(true)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setPriority(NotificationCompat.PRIORITY_HIGH)

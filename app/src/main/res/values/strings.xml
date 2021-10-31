@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">DropDownMenus</string>
+    <string name="hello">Hello</string>
+    <string name="legend">Legend</string>
+    <string name="search_elements">Search elements</string>
+    <string name="add_food_wasted">Add Food Wasted</string>
+    <string name="view_waste">View Waste</string>
     <string-array name="Foods">
         <item>Banana</item>
         <item>Chicken</item>
