@@ -3,8 +3,17 @@
     <string name="hello">Hello</string>
     <string name="legend">Legend</string>
     <string name="search_elements">Search elements</string>
-    <string name="add_food_wasted">Add Food Wasted</string>
     <string name="view_waste">View Waste</string>
+    <string name="add_food">Add Food</string>
+    <string name="newsletter">Newsletter</string>
+    <string name="website">Website</string>
+    <string name="trending">trending</string>
+    <string name="on_average_people_waste_8_11_of_the_food_they_buy">On average people waste 8-11% of the food they buy</string>
+    <string name="home">Home</string>
+    <string name="favorite">favorite</string>
+    <string name="account">account</string>
+    <string name="settings">settings</string>
+    <string name="user">User</string>
     <string-array name="Foods">
         <item>Banana</item>
         <item>Chicken</item>

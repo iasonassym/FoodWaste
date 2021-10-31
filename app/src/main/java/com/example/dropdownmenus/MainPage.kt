@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.widget.*
 import android.widget.AdapterView
 
@@ -27,7 +28,8 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         sp = getSharedPreferences("FoodAndAmount", Context.MODE_PRIVATE)
         sp2 = getSharedPreferences("TypeAndDate", Context.MODE_PRIVATE)
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
 
