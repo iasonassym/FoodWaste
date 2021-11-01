@@ -311,3 +311,46 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_view_waste"-->
+<!--        android:layout_width="214dp"-->
+<!--        android:layout_height="72dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_marginStart="99dp"-->
+<!--        android:layout_marginEnd="99dp"-->
+<!--        android:backgroundTint="#FFFFFF"-->
+<!--        android:text="View Wasted Foods"-->
+<!--        android:textColor="@android:color/black" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_newsletter"-->
+<!--        android:layout_width="214dp"-->
+<!--        android:layout_height="72dp"-->
+<!--        android:backgroundTint="#FFFFFF"-->
+<!--        android:layout_below="@id/btn_view_waste"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="115dp"-->
+<!--        android:text="View Newsletter"-->
+<!--        android:textColor="@android:color/black"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_add_waste"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="72dp"-->
+<!--        android:layout_above="@id/btn_view_waste"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="113dp"-->
+<!--        android:backgroundTint="#FFFFFF"-->
+<!--        android:text="Add Food Wasted"-->
+<!--        android:textColor="@android:color/black" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button4"-->
+<!--        android:layout_width="53dp"-->
+<!--        android:layout_height="58dp"-->
+<!--        android:text="⚙️" />-->
+
