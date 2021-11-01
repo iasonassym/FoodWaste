@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".WastedFoodPage"/>
         <activity android:name=".SettingsPage"/>
+        <activity android:name=".StatsPage"/>
         <receiver android:name=".AlarmReceiver"/>
     </application>
 
