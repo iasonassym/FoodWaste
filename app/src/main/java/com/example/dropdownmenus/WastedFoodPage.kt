@@ -2,16 +2,26 @@ package com.example.dropdownmenus
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import com.example.dropdownmenus.GlobalVariables
+import com.ekn.gruzer.gaugelibrary.HalfGauge
+import com.ekn.gruzer.gaugelibrary.Range
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.round
+import android.widget.TextView
+import android.view.ViewGroup
+import org.w3c.dom.Text
+import java.text.DateFormat
+
 
 class WastedFoodPage : AppCompatActivity() {
     val array: MutableList<String> = ArrayList()
@@ -23,8 +33,10 @@ class WastedFoodPage : AppCompatActivity() {
         var t1: TextView? = null
         var t2: TextView? = null
         var table = findViewById<View>(R.id.table) as TableLayout
-        var table2 = findViewById<View>(R.id.table2) as TableLayout
+        var row = findViewById<View>(R.id.row) as TableRow
+        var halfGauge = findViewById<HalfGauge>(R.id.halfGauge);
         var monthly_price = findViewById<View>(R.id.monthly_cost) as TextView
+        var stats_button = findViewById<Button>(R.id.btn_stats) as Button
 
         val foodData = ArrayList<String>()
         val amountData = ArrayList<String>()
@@ -67,31 +79,67 @@ class WastedFoodPage : AppCompatActivity() {
         println(types)
         println(dates)
 
-        for (i in 0 until foodData.size) {
-            val row = TableRow(this)
-            val phone = foodData[i]
-            val amount = amountData[i]
-            val tv1 = TextView(this)
-            tv1.text = phone
-            val tv2 = TextView(this)
-            tv2.text = amount
-            row.addView(tv1)
-            row.addView(tv2)
-            table.addView(row)
+        for (i in 0 until 15) {
+            val new_row = TableRow(this)
+            val product = "Buk"
+            val amount = "2"
+            val unit = "gram"
+            val date = "25"
+
+            val product_col = TextView(this)
+            val amount_col = TextView(this)
+            val unit_col = TextView(this)
+            val date_col = TextView(this)
+
+            product_col.setText(product)
+            product_col.textSize = 16F
+            amount_col.setText(amount)
+            amount_col.textSize = 16F
+            unit_col.setText(unit)
+            unit_col.textSize = 16F
+            date_col.setText(date)
+            date_col.textSize = 16F
+
+            new_row.addView(product_col)
+            new_row.addView(amount_col)
+            new_row.addView(unit_col)
+            new_row.addView(date_col)
+            new_row.setBackgroundColor(Color.parseColor("#C2DBEB"))
+
+            table.addView(new_row)
         }
 
-        for (i in 0 until typeData.size) {
-            val row = TableRow(this)
-            val phone = typeData[i]
-            val amount = dateData[i]
-            val tv1 = TextView(this)
-            tv1.text = phone
-            val tv2 = TextView(this)
-            tv2.text = amount
-            row.addView(tv1)
-            row.addView(tv2)
-            table2.addView(row)
+        for (i in 0 until foodData.size) {
+
+            val new_row = TableRow(this)
+            val product = foodData[i]
+            val amount = amountData[i]
+            val unit = typeData[i]
+            val date = dateData[i]
+
+            val product_col = TextView(this)
+            val amount_col = TextView(this)
+            val unit_col = TextView(this)
+            val date_col = TextView(this)
+
+            product_col.setText(product)
+            product_col.textSize = 16F
+            amount_col.setText(amount)
+            amount_col.textSize = 16F
+            unit_col.setText(unit)
+            unit_col.textSize = 16F
+            date_col.setText(date)
+            date_col.textSize = 16F
+
+            new_row.addView(product_col)
+            new_row.addView(amount_col)
+            new_row.addView(unit_col)
+            new_row.addView(date_col)
+            new_row.setBackgroundColor(Color.parseColor("#C2DBEB"))
+
+            table.addView(new_row)
         }
+
 
         val listOfProducts = GlobalVariables.getProducts();
         var monthly_cost = 0.0;
@@ -140,9 +188,58 @@ class WastedFoodPage : AppCompatActivity() {
             }
         }
         rounded_monthly_cost = Math.round(monthly_cost*100.0)/100.0;
-        monthly_price.setText("This month you have wasted: $rounded_monthly_cost EUR")
+        val int_monthly_cost = rounded_monthly_cost.toInt();
+
+        if (rounded_monthly_cost >= 0.0 && rounded_monthly_cost < 25.0){
+            monthly_price.setText("Well done being wasteless. Keep it up!")
+        } else if (rounded_monthly_cost >= 25.0 && rounded_monthly_cost < 45.0){
+            monthly_price.setText("Not bad, but can be want the needle to point green!")
+        } else {
+            rounded_monthly_cost = 80.0
+            monthly_price.setText("Your food is very spoiled! Keep that in check.")
+        }
+
+
+        val range = Range()
+        range.color = Color.parseColor("#BBF275")
+        range.from = 0.0
+        range.to = 25.0
+
+        val range2 = Range()
+        range2.color = Color.parseColor("#FAF278")
+        range2.from = 25.0
+        range2.to = 45.0
+
+        val range3 = Range()
+        range3.color = Color.parseColor("#F17257")
+        range3.from = 45.0
+        range3.to = 80.0
+
+        //add color ranges to gauge
+        halfGauge.addRange(range)
+        halfGauge.addRange(range2)
+        halfGauge.addRange(range3)
+
+        //set min max and current value
+        halfGauge.minValue = 0.0
+        halfGauge.maxValue = 80.0
+        halfGauge.value = rounded_monthly_cost
+        halfGauge.setNeedleColor(Color.parseColor("#808080"))
+        halfGauge.isEnableBackGroundShadow = false
+        halfGauge.isEnableNeedleShadow = false
+        halfGauge.minValueTextColor = 0
+        halfGauge.maxValueTextColor = 0
+
+        stats_button.setOnClickListener { goToStatsPage() }
+
+    }
+
+    fun goToStatsPage() {
+        val intent = Intent(this, StatsPage::class.java)
+        startActivity(intent)
     }
 }
+
 
 
 

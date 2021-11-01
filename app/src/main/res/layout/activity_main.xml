@@ -34,9 +34,10 @@
         android:id="@+id/btn_add_waste"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
-        android:layout_above="@id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="113dp"
+        android:layout_above="@id/btn_view_waste"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="115dp"
         android:backgroundTint="#FFFFFF"
         android:text="Add Food Wasted"
         android:textColor="@android:color/black" />
