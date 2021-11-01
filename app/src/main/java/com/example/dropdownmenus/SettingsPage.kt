@@ -15,8 +15,10 @@ import android.app.NotificationManager
 import android.app.NotificationChannel
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.View
 import android.view.Window
 import com.example.dropdownmenus.databinding.ActivitySettingsBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
 internal class SettingsPage : AppCompatActivity() {
@@ -26,6 +28,8 @@ internal class SettingsPage : AppCompatActivity() {
     private var alarmManager: AlarmManager? = null
     private var pendingIntent: PendingIntent? = null
     var sp: SharedPreferences? = null
+    private var bottomNavigationView: BottomNavigationView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         sp = getSharedPreferences("NotificationTime", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
@@ -43,6 +47,23 @@ internal class SettingsPage : AppCompatActivity() {
         var time: String
         time = sp?.getString("time", "").toString()
         binding!!.selectedTime.text = time
+
+        bottomNavigationView = findViewById<View>(R.id.bottomNavigationView) as BottomNavigationView
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView!!)
+
+        bottomNavigationView!!.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menuHome -> {
+                    val intent1 = Intent(this@SettingsPage, MainActivity::class.java)
+                    startActivity(intent1)
+                }
+                R.id.menuSettings -> {
+                    val intent2 = Intent(this@SettingsPage, SettingsPage::class.java)
+                    startActivity(intent2)
+                }
+            }
+            false
+        }
     }
 
     private fun cancelAlarm() {

@@ -16,13 +16,14 @@ public class GlobalVariables {
         Product yogurt = new Product("Yogurt", 450, 1.0);
         Product feta = new Product("Feta", 1, 1);
 
-        //Fruits - 6 items
+        //Fruits - 7 items
         Product banana = new Product("Banana", 1, 1.0);
         Product peach = new Product("Peach", 7, 4.0);
         Product lemon = new Product("Lemon", 1, 1);
         Product apple = new Product("Apple", 6, 3.5);
         Product tomato = new Product("Tomato", 7, 1);
         Product pear = new Product("Pear", 6, 3.75);
+        Product papaya = new Product("Papaya", 1, 2.0);
 
         //Vegetables - 6 items
         Product broccoli = new Product("Broccoli", 1, 1);
@@ -31,6 +32,7 @@ public class GlobalVariables {
         Product cucumber = new Product("Cucumber", 1, 1.5);
         Product onion = new Product("Onion", 1, 1.1);
         Product pepper = new Product("Pepper", 1, 1.5);
+        Product potato = new Product("Potato", 1000, 2.0);
 
         //Meat - 7 items
         Product beef = new Product("Beef", 350, 11);
@@ -53,12 +55,14 @@ public class GlobalVariables {
         food_prices.add(apple);
         food_prices.add(tomato);
         food_prices.add(pear);
+        food_prices.add(papaya);
         food_prices.add(broccoli);
         food_prices.add(carrot);
         food_prices.add(avocado);
         food_prices.add(cucumber);
         food_prices.add(onion);
         food_prices.add(pepper);
+        food_prices.add(potato);
         food_prices.add(beef);
         food_prices.add(chicken_breast);
         food_prices.add(chicken_leg);
