@@ -15,6 +15,7 @@ import android.app.NotificationManager
 import android.app.NotificationChannel
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.Window
 import com.example.dropdownmenus.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -28,6 +29,8 @@ internal class SettingsPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         sp = getSharedPreferences("NotificationTime", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportActionBar?.hide()
         setContentView(R.layout.activity_settings)
         binding = ActivitySettingsBinding.inflate(
             layoutInflater
