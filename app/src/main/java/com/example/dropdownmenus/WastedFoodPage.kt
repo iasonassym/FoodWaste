@@ -20,12 +20,15 @@ import kotlin.collections.ArrayList
 import kotlin.math.round
 import android.widget.TextView
 import android.view.ViewGroup
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.w3c.dom.Text
 import java.text.DateFormat
 
 
 class WastedFoodPage : AppCompatActivity() {
     val array: MutableList<String> = ArrayList()
+    private var bottomNavigationView: BottomNavigationView? = null
+
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -49,8 +52,27 @@ class WastedFoodPage : AppCompatActivity() {
 
         var sp: SharedPreferences? = null
         var sp2: SharedPreferences? = null
+
         sp = applicationContext.getSharedPreferences("FoodAndAmount", Context.MODE_PRIVATE)
         sp2 = applicationContext.getSharedPreferences("TypeAndDate", Context.MODE_PRIVATE)
+
+        bottomNavigationView = findViewById<View>(R.id.bottomNavigationView) as BottomNavigationView
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView!!)
+
+        bottomNavigationView!!.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menuHome -> {
+                    val intent1 = Intent(this@WastedFoodPage, MainActivity::class.java)
+                    startActivity(intent1)
+                }
+                R.id.menuSettings -> {
+                    val intent2 = Intent(this@WastedFoodPage, SettingsPage::class.java)
+                    startActivity(intent2)
+                }
+            }
+            false
+        }
+
         var food: String
         food = sp.getString("food", "").toString()
         var amount: String

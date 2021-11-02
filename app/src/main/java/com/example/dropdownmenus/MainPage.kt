@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.Window
 import android.widget.*
@@ -13,6 +14,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 
 import android.widget.Spinner
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.text.DateFormat
 import java.util.*
 
@@ -25,6 +27,7 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var date: String? = null
     var sp: SharedPreferences? = null
     var sp2: SharedPreferences? = null
+    private var bottomNavigationView: BottomNavigationView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         sp = getSharedPreferences("FoodAndAmount", Context.MODE_PRIVATE)
         sp2 = getSharedPreferences("TypeAndDate", Context.MODE_PRIVATE)
@@ -45,7 +48,7 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         val typeSpinner = findViewById<Spinner>(R.id.typeSpinner)
         val typeAdapter = ArrayAdapter.createFromResource(
             this,
-            R.array.Type, R.layout.support_simple_spinner_dropdown_item
+            R.array.Type, R.layout.spinner_layout
         )
         typeAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         typeSpinner.adapter = typeAdapter
@@ -55,6 +58,26 @@ class MainPage : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         button!!.setOnClickListener { goToMainPage() }
 
         amount = findViewById<View>(R.id.btn_weight_input) as EditText
+        amount!!.setGravity(Gravity.CENTER_HORIZONTAL);
+        amount!!.setGravity(Gravity.CENTER_VERTICAL);
+        amount!!.setPadding(0, 0, 0, 0);
+
+        bottomNavigationView = findViewById<View>(R.id.bottomNavigationView) as BottomNavigationView
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView!!)
+
+        bottomNavigationView!!.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menuHome -> {
+                    val intent1 = Intent(this@MainPage, MainActivity::class.java)
+                    startActivity(intent1)
+                }
+                R.id.menuSettings -> {
+                    val intent2 = Intent(this@MainPage, SettingsPage::class.java)
+                    startActivity(intent2)
+                }
+            }
+            false
+        }
 
     }
 

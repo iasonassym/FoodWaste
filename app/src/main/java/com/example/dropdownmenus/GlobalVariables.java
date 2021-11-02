@@ -53,12 +53,14 @@ public class GlobalVariables {
         food_prices.add(apple);
         food_prices.add(tomato);
         food_prices.add(pear);
+        food_prices.add(papaya);
         food_prices.add(broccoli);
         food_prices.add(carrot);
         food_prices.add(avocado);
         food_prices.add(cucumber);
         food_prices.add(onion);
         food_prices.add(pepper);
+        food_prices.add(potato);
         food_prices.add(beef);
         food_prices.add(chicken_breast);
         food_prices.add(chicken_leg);
@@ -69,7 +71,4 @@ public class GlobalVariables {
 
         return food_prices;
     }
-
-
-
 }
