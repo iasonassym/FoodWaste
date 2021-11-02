@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WastedFoodPage"/>
+        <activity android:name=".SettingsPage"/>
+        <activity android:name=".StatsPage"/>
+        <receiver android:name=".AlarmReceiver"/>
     </application>
 
 </manifest>

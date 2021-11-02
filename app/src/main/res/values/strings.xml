@@ -1,10 +1,59 @@
 <resources>
     <string name="app_name">DropDownMenus</string>
+    <string name="hello">Hello</string>
+    <string name="legend">Legend</string>
+    <string name="search_elements">Search elements</string>
+    <string name="view_waste">View Waste</string>
+    <string name="add_food">Add Food</string>
+    <string name="newsletter">Newsletter</string>
+    <string name="website">Website</string>
+    <string name="trending">trending</string>
+    <string name="on_average_people_waste_8_11_of_the_food_they_buy">On average people waste 8-11% of the food they buy</string>
+    <string name="home">Home</string>
+    <string name="favorite">favorite</string>
+    <string name="account">account</string>
+    <string name="settings">settings</string>
+    <string name="user">User</string>
+    <string name="add_food_you_wasted">Add Food You Wasted</string>
+    <string name="add_amount">Add Amount</string>
+    <string name="select_amount">Select Amount</string>
+    <string name="young_adults_spend_the_most_food_statistically">Young adults spend the most food statistically</string>
     <string-array name="Foods">
         <item>Banana</item>
         <item>Chicken</item>
         <item>Apple</item>
         <item>Pear</item>
         <item>Bread</item>
+        <item>Egg</item>
+        <item>Milk</item>
+        <item>Butter</item>
+        <item>Yogurt</item>
+        <item>Feta</item>
+        <item>Peach</item>
+        <item>Lemon</item>
+        <item>Tomato</item>
+        <item>Papaya</item>
+        <item>Broccoli</item>
+        <item>Carrot</item>
+        <item>Avocado</item>
+        <item>Cucumber</item>
+        <item>Onion</item>
+        <item>Pepper</item>
+        <item>beef</item>
+        <item>Chicken Breast</item>
+        <item>Chicken Leg</item>
+        <item>Minced Meat</item>
+        <item>Pork</item>
+        <item>Whole Chicken</item>
+        <item>Tofu</item>
+        <item>Potato</item>
+        </string-array>
+    <string-array name="Type">
+        <item>grams</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>unit</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
