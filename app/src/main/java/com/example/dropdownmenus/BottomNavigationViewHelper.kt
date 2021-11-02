@@ -1,5 +1,6 @@
 package com.example.dropdownmenus
 
+import android.annotation.SuppressLint
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -7,6 +8,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.reflect.Field
 
 object BottomNavigationViewHelper {
+    @SuppressLint("RestrictedApi")
     fun disableShiftMode(view: BottomNavigationView) {
         val menuView: BottomNavigationMenuView = view.getChildAt(0) as BottomNavigationMenuView
         try {

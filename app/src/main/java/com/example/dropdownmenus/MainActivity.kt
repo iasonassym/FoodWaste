@@ -6,13 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.*
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
-import androidx.annotation.NonNull
-
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-        button = findViewById<View>(R.id.layoutAddFood) as LinearLayout
+        button = findViewById<View>(R.id.money_stat) as LinearLayout
         button!!.setOnClickListener { openActivity2() }
 
         viewWastedFoodButton = findViewById<View>(R.id.layoutViewWaste) as LinearLayout
