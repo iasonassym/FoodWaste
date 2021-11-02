@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class fragment1 extends Fragment {
+public class FragmentOne extends Fragment {
     private Double monthly_avg_one;
     private Double monthly_avg_two;
     private final Double avg_money = 25.0;

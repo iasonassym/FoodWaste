@@ -3,18 +3,12 @@ package com.example.dropdownmenus
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.github.mikephil.charting.charts.BarChart
 
 
 internal class StatsPage : AppCompatActivity() {
@@ -22,6 +16,10 @@ internal class StatsPage : AppCompatActivity() {
 //    val barChart = findViewById<View>(R.id.barChart) as BarChart
     var monthly_avg_one = 0.0;
     var monthly_avg_two = 0.0;
+    var money_per_month = ArrayList<Double>();
+    var amount_per_month = ArrayList<Double>();
+    var frequent_items = ArrayList<String>();
+    var months = ArrayList<String>();
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,17 +29,14 @@ internal class StatsPage : AppCompatActivity() {
         val tabLayout = findViewById<View>(R.id.tabLayout) as TabLayout
         val viewPager = findViewById<View>(R.id.viewPager) as ViewPager
 
-        val money_per_month =  ArrayList<Double>()
-        val amount_per_month =  ArrayList<Double>()
-
         val listOfProducts = GlobalVariables.getProducts();
 
         tabLayout.setupWithViewPager(viewPager)
 
         val fragmentAdapter = FragmentAdapter(supportFragmentManager, FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
-        fragmentAdapter.addFragment(fragment1(), "1");
-        fragmentAdapter.addFragment(fragment2(), "2");
-        fragmentAdapter.addFragment(fragment3(), "3");
+        fragmentAdapter.addFragment(FragmentOne(), "1");
+        fragmentAdapter.addFragment(FragmentTwo(), "2");
+        fragmentAdapter.addFragment(FragmentThree(), "3");
         viewPager.setAdapter(fragmentAdapter)
 
 //        val average_money = viewPager.findViewById<View>(R.id.food_waste2) as TextView
@@ -94,6 +89,7 @@ internal class StatsPage : AppCompatActivity() {
         for (i in 0 until foodData.size){
             if(curr_month != "nothing" && curr_month != dateData[i].trim().split(" ").get(0)){
                 counted_months += 1
+                months.add(curr_month)
                 money_per_month.add(avg_money_waste)
                 amount_per_month.add(avg_gram_waste)
                 avg_money_waste = 0.0
@@ -101,11 +97,12 @@ internal class StatsPage : AppCompatActivity() {
             }
 
             curr_month = dateData[i].trim().split(" ").get(0)
+            months.add(curr_month)
 
             for (p in listOfProducts){
-                println(dateData[i])
+
                 if (foodData[i].trim().equals(p.name)){
-                    println("was here")
+                    frequent_items.add(p.name)
                     avg_money_waste += (p.price * Integer.parseInt(amountData[i].trim())) / p.quantity;
 
                     if(p.weight_per_unit != null){
@@ -121,7 +118,24 @@ internal class StatsPage : AppCompatActivity() {
 
         monthly_avg_one = Math.round((money_per_month.sum() / counted_months)*100.0)/100.0;
         monthly_avg_two = Math.round((amount_per_month.sum() / counted_months)*100.0)/100.0;
+        println(months)
 
+    }
+
+    fun getSortedFrequentItemList() : List<String> {
+        return frequent_items.sortedByDescending { x -> frequent_items.count { it == x } }.distinct()
+    }
+
+    fun money_per_month() : ArrayList<Double> {
+        return money_per_month
+    }
+
+    fun getMonthList() : List<String> {
+        return months.distinct();
+    }
+
+    fun amount_per_month() : ArrayList<Double> {
+        return amount_per_month
     }
 
     fun getMonthlyAvgOne() : Double {
