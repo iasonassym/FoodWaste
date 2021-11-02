@@ -47,6 +47,7 @@ public class FragmentTwo extends Fragment {
         barChart.setDrawValueAboveBar(false);
         barChart.getDescription().setEnabled(false);
         barChart.getAxisLeft().setDrawGridLines(false);
+        barChart.getAxisRight().setEnabled(false);
         barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(months));
         XAxis xAxis = barChart.getXAxis();

@@ -71,46 +71,11 @@ class WastedFoodPage : AppCompatActivity() {
         var dates = date.split("@")
         dates = dates.subList(1, dates.size)
 
-        println(foods)
-        foodData.addAll(foods)
-        amountData.addAll(amounts)
-        println(amounts)
+        foodData.addAll(foods.reversed())
+        amountData.addAll(amounts.reversed())
+        typeData.addAll(types.reversed())
+        dateData.addAll(dates.reversed())
 
-        typeData.addAll(types)
-        dateData.addAll(dates)
-
-        println(types)
-        println(dates)
-
-        for (i in 0 until 15) {
-            val new_row = TableRow(this)
-            val product = "Buk"
-            val amount = "2"
-            val unit = "gram"
-            val date = "25"
-
-            val product_col = TextView(this)
-            val amount_col = TextView(this)
-            val unit_col = TextView(this)
-            val date_col = TextView(this)
-
-            product_col.setText(product)
-            product_col.textSize = 16F
-            amount_col.setText(amount)
-            amount_col.textSize = 16F
-            unit_col.setText(unit)
-            unit_col.textSize = 16F
-            date_col.setText(date)
-            date_col.textSize = 16F
-
-            new_row.addView(product_col)
-            new_row.addView(amount_col)
-            new_row.addView(unit_col)
-            new_row.addView(date_col)
-            new_row.setBackgroundColor(Color.parseColor("#C2DBEB"))
-
-            table.addView(new_row)
-        }
 
         for (i in 0 until foodData.size) {
 
@@ -196,10 +161,10 @@ class WastedFoodPage : AppCompatActivity() {
         if (rounded_monthly_cost >= 0.0 && rounded_monthly_cost < 25.0){
             monthly_price.setText("Well done being wasteless. Keep it up!")
         } else if (rounded_monthly_cost >= 25.0 && rounded_monthly_cost < 45.0){
-            monthly_price.setText("Not bad, but can be want the needle to point green!")
+            monthly_price.setText("We want the needle to point green!")
         } else {
             rounded_monthly_cost = 80.0
-            monthly_price.setText("Your food is very spoiled! Keep that in check.")
+            monthly_price.setText("Your food is very spoiled! Keep it in check.")
         }
 
 

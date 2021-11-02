@@ -29,14 +29,15 @@ internal class StatsPage : AppCompatActivity() {
         val tabLayout = findViewById<View>(R.id.tabLayout) as TabLayout
         val viewPager = findViewById<View>(R.id.viewPager) as ViewPager
 
+
         val listOfProducts = GlobalVariables.getProducts();
 
         tabLayout.setupWithViewPager(viewPager)
 
         val fragmentAdapter = FragmentAdapter(supportFragmentManager, FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
-        fragmentAdapter.addFragment(FragmentOne(), "1");
-        fragmentAdapter.addFragment(FragmentTwo(), "2");
-        fragmentAdapter.addFragment(FragmentThree(), "3");
+        fragmentAdapter.addFragment(FragmentOne(), "");
+        fragmentAdapter.addFragment(FragmentTwo(), "");
+        fragmentAdapter.addFragment(FragmentThree(), "");
         viewPager.setAdapter(fragmentAdapter)
 
 //        val average_money = viewPager.findViewById<View>(R.id.food_waste2) as TextView
