@@ -24,7 +24,7 @@ internal class StatsPage : AppCompatActivity() {
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.avtivity_stats)
+        setContentView(R.layout.activity_stats)
 
         val tabLayout = findViewById<View>(R.id.tabLayout) as TabLayout
         val viewPager = findViewById<View>(R.id.viewPager) as ViewPager
